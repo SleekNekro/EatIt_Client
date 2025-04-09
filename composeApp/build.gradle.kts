@@ -41,6 +41,7 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {
+            //basic
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -49,12 +50,25 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation(libs.koin.core) // Añade Koin Core
+
+            //koin
+            implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
-            implementation(libs.ktor.client.core) // Añade Ktor Client Core
+
+            //ktor y serializacion
+            implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.negotiation)
-            implementation(libs.ktor.client.serialization) // Serialización para Ktor
+            implementation(libs.kotlin.serialization)
+
+            //voyager
+            implementation(libs.voyager.navigator)
+            implementation(libs.voyager.transitions)
+            implementation(libs.voyager.tabNavigator)
+
+            //settings
+            implementation(libs.settings)
+
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -65,7 +79,7 @@ kotlin {
             implementation(libs.kotlinx.coroutines.swing)
             implementation(libs.koin.core) // Añade Koin Core para escritorio
             implementation(libs.ktor.client.core) // Ktor Client para escritorio
-            implementation(libs.ktor.client.serialization) // Serialización para escritorio
+            implementation(libs.kotlin.serialization) // Serialización para escritorio
         }
     }
 }
